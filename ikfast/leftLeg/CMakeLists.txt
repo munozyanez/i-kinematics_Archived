@@ -1,0 +1,21 @@
+project(ikfastLeftLeg)
+
+add_definitions( -fPIC -lstdc++ -DIKFAST_NO_MAIN -DIKFAST_CLIBRARY -shared -Wl)
+
+
+
+# source files
+aux_source_directory(. LIB_SRCS)
+#INCLUDE_DIRECTORIES(.)
+
+
+FILE(GLOB_RECURSE LIB_INCLUDE_LIST *.h *.hpp)
+set(SUBDIR_INCLUDE_DIRECTORIES ${SUBDIR_INCLUDE_DIRECTORIES} ${CMAKE_CURRENT_SOURCE_DIR} PARENT_SCOPE)
+
+ADD_LIBRARY(${PROJECT_NAME} STATIC ${LIB_SRCS} ${LIB_INCLUDE_LIST})
+
+
+
+
+
+
