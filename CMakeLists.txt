@@ -53,7 +53,7 @@ else("${CMAKE_PROJECT_NAME}" STREQUAL "${PROJECT_NAME}")
 endif()
 
 
-#target_link_libraries( ${PROJECT_NAME} ${PLOTUTILS_LIBRARIES})
+target_link_libraries( ${PROJECT_NAME} ${SUBDIR_LINK_NAMES})
 
 
 

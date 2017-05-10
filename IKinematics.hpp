@@ -25,12 +25,17 @@ class IKinematics
 public:
     IKinematics();
 
+    long RightLegFwdKin(const std::vector<double> &q, std::vector<double> &pose);
+    long LeftLegFwdKin(const std::vector<double> &q, std::vector<double> &pose);
 
-
+    long LeftLegInvKin(const std::vector<double> &pose, std::vector<double> &q);
+    long RightLegInvKin(const std::vector<double> &pose, std::vector<double> &q);
 private:
 
 kinLeftLeg::IkReal j;
-
+double rightLegFParam,leftLegFParam;
+ikfast::IkSolutionList<double> rightLegIKList, leftLegIKList;
+ikfast::IkSolution<double> *rightLegIKSol, * leftLegIKSol;
 };
 
 #endif // IKINEMATICS_H
