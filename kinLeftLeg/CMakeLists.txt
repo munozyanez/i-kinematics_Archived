@@ -1,12 +1,10 @@
-project(ikfastLeftLeg)
+project(kinLeftLeg)
 
-add_definitions( -fPIC -lstdc++ -DIKFAST_NO_MAIN -DIKFAST_CLIBRARY -shared -Wl)
-
-
+add_definitions( -DIKFAST_NO_MAIN -DIKFAST_CLIBRARY -IKFAST_NAMESPACE=kinLeftLeg)
 
 # source files
 aux_source_directory(. LIB_SRCS)
-#INCLUDE_DIRECTORIES(.)
+INCLUDE_DIRECTORIES(..)
 
 
 FILE(GLOB_RECURSE LIB_INCLUDE_LIST *.h *.hpp)
@@ -14,6 +12,8 @@ set(SUBDIR_INCLUDE_DIRECTORIES ${SUBDIR_INCLUDE_DIRECTORIES} ${CMAKE_CURRENT_SOU
 
 ADD_LIBRARY(${PROJECT_NAME} STATIC ${LIB_SRCS} ${LIB_INCLUDE_LIST})
 
+
+remove_definitions( -DIKFAST_NO_MAIN -DIKFAST_CLIBRARY -IKFAST_NAMESPACE)
 
 
 

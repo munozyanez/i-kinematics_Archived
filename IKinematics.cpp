@@ -2,5 +2,8 @@
 
 IKinematics::IKinematics()
 {
+kinLeftLeg::GetNumJoints();
+kinRightLeg::GetNumJoints();
+
 
 }

@@ -7,15 +7,29 @@
 #include <algorithm>    // std::min_element, std::max_element
 
 #include <iostream>
-//#include "ikfastLeftLeg.h"
+
+#define IKFAST_HAS_LIBRARY
+
+#undef IKFAST_NAMESPACE
+#define IKFAST_NAMESPACE kinLeftLeg
+#include "ikfast.h"
+#undef IKFAST_NAMESPACE
+
+#undef IKFAST_NAMESPACE
+#define IKFAST_NAMESPACE kinRightLeg
+#include "ikfast.h"
+#undef IKFAST_NAMESPACE
 
 class IKinematics
 {
 public:
     IKinematics();
 
+
+
 private:
 
+kinLeftLeg::IkReal j;
 
 };
 

@@ -35,14 +35,13 @@
 #include <stdexcept>
 #include <cmath>
 
-#define IKFAST_NAMESPACE ikleftLeg
-
 #ifndef IKFAST_HEADER_COMMON
 #define IKFAST_HEADER_COMMON
 
 /// should be the same as ikfast.__version__
 /// if 0x10000000 bit is set, then the iksolver assumes 6D transforms are done without the manipulator offset taken into account (allows to reuse IK when manipulator offset changes)
 #define IKFAST_VERSION 0x10000048
+
 namespace ikfast {
 
 /// \brief holds the solution for a single dof
