@@ -35,7 +35,10 @@ private:
 kinLeftLeg::IkReal j;
 double rightLegFParam,leftLegFParam;
 ikfast::IkSolutionList<double> rightLegIKList, leftLegIKList;
-ikfast::IkSolution<double> *rightLegIKSol, * leftLegIKSol;
+const ikfast::IkSolutionBase<double> *rightLegIKSol, *leftLegIKSol;
+std::vector<double> leftLegFreeQVals, rightLegFreeQVals;
+
+
 };
 
 #endif // IKINEMATICS_H

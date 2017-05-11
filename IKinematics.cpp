@@ -3,7 +3,8 @@
 
 IKinematics::IKinematics()
 {
-
+leftLegFreeQVals.resize(kinLeftLeg::GetNumFreeParameters() );
+rightLegFreeQVals.resize(kinRightLeg::GetNumFreeParameters() );
 
 }
 
@@ -25,10 +26,13 @@ long IKinematics::RightLegFwdKin(const std::vector<double>& q, std::vector<doubl
 long IKinematics::LeftLegInvKin(const std::vector<double> & pose, std::vector<double>& q)
 {
 
-    //CAREFUL THIS
-
     kinLeftLeg::ComputeIk(&pose[0], &pose[3], 0, leftLegIKList);
-    //leftLegIKSol = (ikfast::IkSolution<double>*)&leftLegIKList.GetSolution(0);
+    leftLegIKSol = &leftLegIKList.GetSolution(0);
+    for (long i = 0; i< leftLegFreeQVals.size(); i++)
+    {
+        std::cout << leftLegFreeQVals[i] << "," << std::endl;
+    }
+    leftLegIKSol->GetSolution(q,leftLegFreeQVals);
     return 0;
 }
 
