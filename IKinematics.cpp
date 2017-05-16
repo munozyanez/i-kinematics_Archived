@@ -30,6 +30,17 @@ long IKinematics::LeftLegInvKin(const std::vector<double> & pose, std::vector<do
 
     kinLeftLeg::ComputeIk(&pose[0], &pose[3], 0, leftLegIKList);
 
+    if (leftLegIKList.GetNumSolutions() < 1)
+    {
+        std::cout << "inverse kinematics failed for pose: " << std::endl;
+        std::cout << "Position " << pose[0] << ", " << pose[1] << ", " << pose[2] << std::endl;
+        std::cout << "Rotation " << std::endl;
+        std::cout <<  pose[3] << ", " << pose[4] << ", " << pose[5] << std::endl;
+        std::cout <<  pose[6] << ", " << pose[7] << ", " << pose[8] << std::endl;
+        std::cout <<  pose[9] << ", " << pose[10] << ", " << pose[11] << std::endl;
+
+    }
+
     long n = leftLegIKList.GetNumSolutions()-1;
 
     std::vector<double> mods(n);
